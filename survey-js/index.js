@@ -41,7 +41,7 @@ var surveyJSON = {
                 {
                     "type": "html",
                     "name": "homePage",
-                    "html": "Tutaj możęmy umieścić dokłądną instrukcję co i jak, która możę być co jest <b>html-em</b><br/><br/><img src=\"http://picsum.photos/400/400\"/>"
+                    "html": "Tutaj możęmy umieścić dokłądną instrukcję co i jak, która możę być downolnym <b>html-em</b><br/><br/><img src=\"http://picsum.photos/400/400\"/>"
                 }
             ],
 
@@ -244,8 +244,16 @@ survey
     });
 
 
+var myCss = {
+    matrix: {
+        root: "table table-striped"
+    },
+    navigationButton: "button btn-lg"
+};
+
 $('#surveyContainer').Survey({
     model: survey,
+    css: myCss,
     onComplete: sendDataToServer,
     onValidateQuestion: surveyValidateQuestion
 });
