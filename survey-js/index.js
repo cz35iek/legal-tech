@@ -31,9 +31,23 @@ var surveyJSON = {
     logoWidth: 260,
     logoHeight: 55,
     logoPosition: window.innerWidth > 768 ? 'right' : 'top',
+    showProgressBar: "bottom",
+    firstPageIsStarted: true,
     pages: [
         {
-            name: 'page1',
+            "name": "page1",
+            "title": "Witamy w sytemie składania wniosków",
+            "elements": [
+                {
+                    "type": "html",
+                    "name": "homePage",
+                    "html": "Tutaj możęmy umieścić dokłądną instrukcję co i jak, która możę być co jest <b>html-em</b><br/><br/><img src=\"http://picsum.photos/400/400\"/>"
+                }
+            ],
+
+        },
+        {
+            name: 'page2',
             elements: [
                 {
                     type: 'paneldynamic',
@@ -65,7 +79,7 @@ var surveyJSON = {
             title: 'Wnioskodawcy'
         },
         {
-            name: 'page2',
+            name: 'page3',
             elements: [
                 {
                     type: 'dropdown',
@@ -135,7 +149,7 @@ var surveyJSON = {
             title: 'Nagłówek'
         },
         {
-            name: 'page3',
+            name: 'page4',
             elements: [
                 {
                     type: 'paneldynamic',
@@ -167,7 +181,7 @@ var surveyJSON = {
             title: 'Uczestnicy'
         },
         {
-            name: "page4",
+            name: "page5",
             elements: [
                 {
                     type: "file",
