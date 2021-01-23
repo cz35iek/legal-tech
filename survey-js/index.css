@@ -1,14 +1,6 @@
-/* .header {
-  width:auto;
-}
-
-.container {
-  display: flex; 
-  justify-content: center;
-} */
-
 body, .sv_container {
   background: #fff url(http://www.kancelaria-nowakowski.com.pl/images/bg.png);
+  /* font-family: 'Ubuntu', sans-serif; */
 }
 
 .sv_container {

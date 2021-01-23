@@ -57,12 +57,14 @@ var surveyJSON = {
                         {
                             type: 'text',
                             name: 'applicants.name',
-                            title: 'Imię Nazwisko'
+                            title: 'Imię Nazwisko',
+                            isRequired: true
                         },
                         {
-                            type: 'text',
+                            type: 'comment',
                             name: 'applicants.address',
-                            title: 'Adres zamieszkania'
+                            title: 'Adres zamieszkania',
+                            isRequired: true
                         },
                         {
                             type: 'text',
@@ -159,12 +161,14 @@ var surveyJSON = {
                         {
                             type: 'text',
                             name: 'participants.name',
-                            title: 'Imię Nazwisko'
+                            title: 'Imię Nazwisko',
+                            isRequired: true
                         },
                         {
-                            type: 'text',
+                            type: 'comment',
                             name: 'participants.address',
-                            title: 'Adres zamieszkania'
+                            title: 'Adres zamieszkania',
+                            isRequired: true
                         },
                         {
                             type: 'text',
@@ -243,17 +247,8 @@ survey
             });
     });
 
-
-var myCss = {
-    matrix: {
-        root: "table table-striped"
-    },
-    navigationButton: "button btn-lg"
-};
-
 $('#surveyContainer').Survey({
     model: survey,
-    css: myCss,
     onComplete: sendDataToServer,
     onValidateQuestion: surveyValidateQuestion
 });
