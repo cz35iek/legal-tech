@@ -1,0 +1,115 @@
+{
+  "ResultCount": 4,
+  "Data": [
+    {
+      "court": "Łask (SR1L)",
+      "lawyer": "adw. Piotr Nowakowski",
+      "paymentConfirmation": [
+        {
+          "name": "Hello! (1)",
+          "type": "",
+          "content": "https://api.surveyjs.io/public/v1/Survey/file?filePath=e437557f-9665-4934-89b2-7e407d3254e9"
+        },
+        {
+          "name": "Hello! (1)",
+          "type": "",
+          "content": "dxsfile:8cfc37c8-4939-4ac3-9cd4-96fff2f8d6f2"
+        }
+      ],
+      "HappendAt": "\/Date(1608370062918)\/",
+      "InstanceId": null
+    },
+    {
+      "court": "Łask (SR1L)",
+      "lawyer": "adw. Piotr Nowakowski",
+      "paymentConfirmation": [
+        {
+          "name": "Hello!",
+          "type": "",
+          "content": "https://api.surveyjs.io/public/v1/Survey/file?filePath=748846ce-2e80-4403-82e6-8a6ed01322cc"
+        },
+        {
+          "name": "Hello!",
+          "type": "",
+          "content": "dxsfile:50aa050c-9ace-4c93-856a-b5c0046ef42b"
+        }
+      ],
+      "HappendAt": "\/Date(1608369864166)\/",
+      "InstanceId": null
+    },
+    {
+      "applicants": [
+        {
+          "applicants.name": "test",
+          "applicants.address": "test",
+          "applicants.pesel": "57040293576"
+        },
+        {
+          "applicants.name": "test2",
+          "applicants.address": "test2",
+          "applicants.pesel": "57040293576"
+        }
+      ],
+      "court": "Łask (SR1L)",
+      "lawyer": "adw. Piotr Nowakowski",
+      "participants": [
+        {
+          "participants.name": "uczestnik1",
+          "participants.pesel": "57040293576",
+          "participants.address": "uczestnik1"
+        }
+      ],
+      "paymentConfirmation": [
+        {
+          "name": "sample audio mos - failed.ndjson",
+          "type": "",
+          "content": "dxsfile:67fff149-1323-4b92-9fda-6e605d6a55e7.ndjson"
+        },
+        {
+          "name": "sample audio mos - failed.ndjson",
+          "type": "",
+          "content": "https://api.surveyjs.io/public/v1/Survey/file?filePath=64d82f01-4c11-4c89-8048-d360942af579.ndjson"
+        }
+      ],
+      "HappendAt": "\/Date(1608573589716)\/",
+      "InstanceId": null
+    },
+    {
+      "applicants": [
+        {
+          "applicants.name": "Dawid Cech",
+          "applicants.address": "deszczowa",
+          "applicants.pesel": "82042119731"
+        }
+      ],
+      "court": "Łęczyca (LD1Y)",
+      "lawyer": "adw. Piotr Nowakowski",
+      "participants": [
+        {
+          "participants.name": "uczestnik1",
+          "participants.address": "adres1",
+          "participants.pesel": "90071634781"
+        },
+        {
+          "participants.name": "uczestnik2",
+          "participants.address": "adres 2",
+          "participants.pesel": "90071634781"
+        }
+      ],
+      "paymentConfirmation": [
+        {
+          "name": "Hello!",
+          "type": "",
+          "content": "https://api.surveyjs.io/public/v1/Survey/file?filePath=5ee2bd79-4206-4b60-8cd0-8a4c945131d9"
+        },
+        {
+          "name": "Hello!",
+          "type": "",
+          "content": "dxsfile:db64ba97-b9b0-4d6a-84eb-614892cd6adf"
+        }
+      ],
+      "HappendAt": "\/Date(1608376710868)\/",
+      "InstanceId": null
+    }
+  ]
+}
