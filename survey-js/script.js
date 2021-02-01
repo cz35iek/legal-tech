@@ -1,6 +1,6 @@
 // Show Designer, Test Survey, JSON Editor and additionally Logic tabs
 var options = {
-  showLogicTab: true
+  showLogicTab: true,
 };
 //create the SurveyJS Creator and render it in div with id equals to "creatorElement"
 var creator = new SurveyCreator.SurveyCreator("creatorElement", options);
