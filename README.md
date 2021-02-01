@@ -1,7 +1,7 @@
 # legal-tech
 
 ## usefull links
- - [creator](creator.html)
- - [proposal](index.html)
- - [print-template](wniosek.html)
+ - [creator](survey-js/creator.html)
+ - [proposal](survey-js/index.html)
+ - [print-template](survey-js/wniosek.html)
  
