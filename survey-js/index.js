@@ -13,12 +13,29 @@ function validatePesel(pesel) {
   return (10 - sum) % 10 === controlNumber;
 }
 
+function validateFraction(fractionText) {
+  let result = false;
+  try {
+    const fraction = math.fraction(fractionText);
+    result = fraction > 0 && fraction <= 1;
+  } catch {}
+  return result;
+}
+
 function surveyValidateQuestion(s, options) {
   if (options.name.indexOf("pesel") > 0) {
     var pesel = options.value;
 
     if (!validatePesel(pesel)) {
       options.error = "Niepoprawny PESEL";
+    }
+  }
+  if (options.name.indexOf("inheritence") > 0) {
+    var fraction = options.value;
+
+    if (!validateFraction(fraction)) {
+      options.error =
+        "Niepoprawna część spadku, wymagany ułamek w postaci 0 < a/b <= 1";
     }
   }
 }
@@ -115,18 +132,9 @@ var surveyJSON = {
             {
               type: "text",
               name: "applicants.inheritence",
-              title: "Część spadku (%)",
+              title: "Część spadku (ułamek)",
               isRequired: true,
-              inputType: "number",
-              min: 1,
-              max: 100,
-              validators: [
-                {
-                  type: "numeric",
-                  minValue: 1,
-                  maxValue: 100,
-                },
-              ],
+              inputType: "text",
             },
           ],
           panelCount: 1,
