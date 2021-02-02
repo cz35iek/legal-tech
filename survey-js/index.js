@@ -403,6 +403,8 @@ var surveyJSON = {
   ],
   // surveyId: '83e2dbb2-b4a6-4631-901a-3d92f91725bf',
   surveyPostId: "2eda972a-072e-469e-9b59-5e85535274d9",
+  showQuestionNumbers: "off",
+  checkErrorsMode: "onValueChanged",
 };
 
 function sendDataToServer(survey) {
