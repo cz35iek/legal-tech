@@ -64,7 +64,87 @@ var surveyJSON = {
       ],
     },
     {
-      name: "page2",
+      "name": "page2",
+      "title": "Spadkodawca",
+      "elements": [
+        {
+          type: "text",
+          name: "testator.name",
+          title: "Imię Nazwisko",
+          isRequired: true,
+        },
+        {
+          type: "radiogroup",
+          name: "testator.sex",
+          title: "Płeć",
+          isRequired: true,
+          choices: [
+            {
+              value: "Kobieta",
+              text: "Kobieta",
+            },
+            {
+              value: "Mężczyzna",
+              text: "Mężczyzna",
+            },
+          ],
+        },
+        {
+          type: "radiogroup",
+          name: "testator.maritalStatus",
+          title: "Stan cywilny",
+          isRequired: true,
+          choices: [
+            {
+              value: "kawaler, panna",
+              text: "kawaler, panna",
+            },
+            {
+              value: "żonaty, zamężna",
+              text: "żonaty, zamężna",
+            },
+            {
+              value: "wdowiec, wdowa",
+              text: "wdowiec, wdowa",
+            },
+            {
+              value: "rozwiedziony, rozwiedziona",
+              text: "rozwiedziony, rozwiedziona",
+            },
+            {
+              value: "separowany, separowana",
+              text: "separowany, separowana",
+            },
+          ],
+        },
+        {
+          type: "comment",
+          name: "testator.address",
+          title: "Adres zamieszkania",
+          isRequired: true,
+        },
+        {
+          type: "text",
+          name: "testator.parents",
+          title: "Imiona rodziców",
+          isRequired: true,
+        },
+        {
+          type: "text",
+          name: "testator.familyName",
+          title: "Nazwisko rodowe",
+        },
+        {
+          type: "text",
+          name: "testator.dateOfDeath",
+          title: "Data śmierci",
+          inputType: "date",
+          isRequired: true,
+        },
+      ],
+    },
+    {
+      name: "page3",
       elements: [
         {
           type: "paneldynamic",
@@ -145,7 +225,7 @@ var surveyJSON = {
       title: "Wnioskodawcy",
     },
     {
-      name: "page3",
+      name: "page4",
       elements: [
         {
           type: "dropdown",
@@ -212,10 +292,10 @@ var surveyJSON = {
           ],
         },
       ],
-      title: "Nagłówek",
+      title: "Prowadzący sprawę",
     },
     {
-      name: "page4",
+      name: "page5",
       elements: [
         {
           type: "paneldynamic",
@@ -305,7 +385,7 @@ var surveyJSON = {
       title: "Uczestnicy",
     },
     {
-      name: "page5",
+      name: "page6",
       elements: [
         {
           type: "file",
