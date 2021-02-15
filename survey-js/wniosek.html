@@ -1,103 +1,135 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Proposal</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:400,700"
+      rel="stylesheet"
+    />
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@17.0.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Proposal</title>
-  <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
-  <!-- Load React. -->
-  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
-  <script src="https://unpkg.com/react@17.0.1/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@17.0.1/umd/react-dom.development.js"></script>
-  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-</head>
+  <body style="margin: 5vw; font-family: 'Segoe UI', Arial, sans-serif">
+    <div id="root" />
+    <script type="text/babel">
+      const Proposals = () => {
+        const [hasError, setErrors] = React.useState(false)
+        const [index, setIndex] = React.useState(0)
+        const [count, setCount] = React.useState(0)
+        const [proposal, setProposal] = React.useState({})
+        const [proposals, setProposals] = React.useState([])
 
-<body style="margin:5vw; font-family: 'Segoe UI',Arial,sans-serif;">
-  <div id='root' />
-  <script type="text/babel">
-    const Proposals = () => {
-      const [hasError, setErrors] = React.useState(false);
-      const [index, setIndex] = React.useState(0);
-      const [count, setCount] = React.useState(0);
-      const [proposal, setProposal] = React.useState({});
-      const [proposals, setProposals] = React.useState([]);
+        async function fetchData() {
+          const res = await fetch(
+            'https://api.surveyjs.io/private/Surveys/getSurveyResults/83e2dbb2-b4a6-4631-901a-3d92f91725bf?accessKey=dade5a6c382a4252a9bd8dc27eb0e216'
+          )
 
-      async function fetchData() {
-        const res =
-          await fetch("https://api.surveyjs.io/private/Surveys/getSurveyResults/83e2dbb2-b4a6-4631-901a-3d92f91725bf?accessKey=dade5a6c382a4252a9bd8dc27eb0e216");
-
-        res
-          .json()
-          .then(res => {
-            setProposals(res.Data);
-            setCount(res.ResultCount);
-            setIndex(res.ResultCount - 1);
-            setProposal(res.Data[index]);
-          })
-          .catch(err => setErrors(err));
-      }
-      React.useEffect(() => {
-        fetchData();
-      }, []);
-
-      const onKeyDown = (e) => {
-        if (e.code === 'ArrowLeft' && index > 0) {
-          e.preventDefault();
-          setIndex(index - 1);
-          setProposal(proposals[index - 1])
+          res
+            .json()
+            .then((res) => {
+              setProposals(res.Data)
+              setCount(res.ResultCount)
+              setIndex(res.ResultCount - 1)
+              setProposal(res.Data[index])
+            })
+            .catch((err) => setErrors(err))
         }
-        if (e.code === 'ArrowRight' && index < count - 1) {
-          e.preventDefault();
-          setIndex(index + 1);
-          setProposal(proposals[index + 1])
+        React.useEffect(() => {
+          fetchData()
+        }, [])
+
+        const onKeyDown = (e) => {
+          if (e.code === 'ArrowLeft' && index > 0) {
+            e.preventDefault()
+            setIndex(index - 1)
+            setProposal(proposals[index - 1])
+          }
+          if (e.code === 'ArrowRight' && index < count - 1) {
+            e.preventDefault()
+            setIndex(index + 1)
+            setProposal(proposals[index + 1])
+          }
         }
-      }
 
-      return (<div tabIndex="0" style={{ outline: "none" }} onKeyDown={onKeyDown}>
-        <Proposal {...proposal} />
-      </div>)
-    }
-
-    const Proposal = (proposal) => {
-      return (
-        <div >
-          <h1>Sad rejonowy - {proposal.court} | wydział cywilny</h1>
-          <div style={{ textAlign: "right" }}>
-            <h3>{proposal.lawyer}</h3>
-            <h3>z Kancelarii (w nagłówku)</h3>
-            <h3>pełnomocnik wnioskodawczyni/wnioskodawcy</h3>
-            {proposal.applicants && proposal.applicants.map(a =>
-              <div key={a["applicants.name"]} >
-                <h3>{a["applicants.name"]}</h3>
-                <h3>{a["applicants.address"]}</h3>
-                <h3>PESEL: {a["applicants.pesel"]}</h3>
-              </div>
-            )}
+        return (
+          <div tabIndex="0" style={{ outline: 'none' }} onKeyDown={onKeyDown}>
+            <Proposal {...proposal} />
           </div>
-          <h1 style={{ textAlign: "center" }}>Wniosek</h1>
-          <h3 style={{ textAlign: "center" }}>o stwierdzenie nabycia spadku</h3>
+        )
+      }
 
+      const Proposal = (proposal) => {
+        return (
           <div>
-            Wnoszę o stwierdzenie, że spadek po zmarłej w dniu <i>17 marca 2018 r.</i> Józefie
-            Kowalskiej, <i>córce Katarzyny i Władysława</i>, z domu <i>Nowak</i>, ostatnio zamieszkałej w <i>Buczku</i>,
-            <i>gmina Buczek</i>, powiat <i>łaski</i>, na mocy dziedziczenia ustawowego, wraz z
-            dobrodziejstwem inwentarza nabyli:
-            <ul>
-              {proposal.participants && proposal.participants.map(p =>
-                <li key={p["participants.name"]}>
-                  {p["participants.name"]}, {p["participants.address"]}, PESEL: {p["participants.pesel"]}
-                </li>
+            <h1>Sad rejonowy - {proposal.court} | wydział cywilny</h1>
+            <div style={{ textAlign: 'right' }}>
+              <h3>{proposal.lawyer}</h3>
+              <h3>z Kancelarii (w nagłówku)</h3>
+              <h3>pełnomocnik wnioskodawczyni/wnioskodawcy</h3>
+              {proposal.applicants &&
+                proposal.applicants.map((a) => (
+                  <div key={a['applicants.name']}>
+                    <h3>{a['applicants.name']}</h3>
+                    <h3>{a['applicants.address']}</h3>
+                    <h3>PESEL: {a['applicants.pesel']}</h3>
+                  </div>
+                ))}
+            </div>
+            <h1 style={{ textAlign: 'center' }}>Wniosek</h1>
+            <h3 style={{ textAlign: 'center' }}>
+              o stwierdzenie nabycia spadku
+            </h3>
+
+            <p>
+              I. Wnoszę o stwierdzenie, że spadek po zmarłej w dniu
+              {proposal['testator.name'] && (
+                <React.Fragment>
+                  <i>{proposal['testator.dateOfDeath']}</i>,{' '}
+                  <i>{proposal['testator.name']}</i>,
+                  <i>
+                    {proposal['testator.sex'] === 'female' ? 'córce' : 'synowi'}{' '}
+                    {proposal['testator.parents']}
+                  </i>
+                  , z domu <i>Nowak</i>, ostatnio zamieszkałej w{' '}
+                  <i>{proposal['testator.address']}</i>, na mocy dziedziczenia
+                  ustawowego, wraz z dobrodziejstwem inwentarza nabyli:
+                </React.Fragment>
               )}
+            </p>
+            <ul>
+              {proposal.applicants &&
+                proposal.applicants.map((a) => (
+                  <li key={a['applicants.name']}>
+                    {a['applicants.affinity']} - {a['applicants.name']},{' '}
+                    {a['applicants.address']}, PESEL: {a['applicants.pesel']},
+                    udział w masie spadkowej: {a['applicants.inheritence']}
+                  </li>
+                ))}
+              {proposal.participants &&
+                proposal.participants.map((p) => (
+                  <li key={p['participants.name']}>
+                    {p['participants.affinity']} - {p['participants.name']},{' '}
+                    {p['participants.address']}, PESEL:{' '}
+                    {p['participants.pesel']}, udział w masie spadkowej:{' '}
+                    {p['participants.inheritence']}
+                  </li>
+                ))}
             </ul>
+            <p>
+              II. Wnoszę o odebranie na rozprawie od wnioskodawczyni i
+              uczestników oświadczenia o przyjęciu spadku wraz z dobrodziejstwem
+              inwentarza / przyjęciu spadku / odrzuceniu spadku.
+            </p>
           </div>
-        </div >);
-    }
+        )
+      }
 
-    ReactDOM.render(
-      <Proposals />,
-      document.getElementById('root')
-    );
-  </script>
-</body>
-
+      ReactDOM.render(<Proposals />, document.getElementById('root'))
+    </script>
+  </body>
 </html>

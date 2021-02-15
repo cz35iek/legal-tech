@@ -80,11 +80,11 @@ var surveyJSON = {
           isRequired: true,
           choices: [
             {
-              value: "Kobieta",
+              value: "female",
               text: "Kobieta",
             },
             {
-              value: "Mężczyzna",
+              value: "male",
               text: "Mężczyzna",
             },
           ],
@@ -145,6 +145,7 @@ var surveyJSON = {
     },
     {
       name: "page3",
+      title: "Wnioskodawcy",
       elements: [
         {
           type: "paneldynamic",
@@ -222,80 +223,10 @@ var surveyJSON = {
           panelAddText: "Dodaj wnioskodawcę",
         },
       ],
-      title: "Wnioskodawcy",
     },
     {
       name: "page4",
-      elements: [
-        {
-          type: "dropdown",
-          name: "court",
-          title: "Sąd",
-          isRequired: true,
-          choices: [
-            {
-              value: "Kutno (LD1K)",
-              text: "Kutno (LD1K)",
-            },
-            {
-              value: "Łask (SR1L)",
-              text: "Łask (SR1L)",
-            },
-            {
-              value: "Łęczyca (LD1Y)",
-              text: "Łęczyca (LD1Y)",
-            },
-            {
-              value: "Łowicz (LD1O)",
-              text: "Łowicz (LD1O)",
-            },
-            {
-              value: "Łódź (LD1M)",
-              text: "Łódź (LD1M)",
-            },
-            {
-              value: "Pabianice (LD1P)",
-              text: "Pabianice (LD1P)",
-            },
-            {
-              value: "Rawa Mazowiecka (LD1R)",
-              text: "Rawa Mazowiecka (LD1R)",
-            },
-            {
-              value: "Skierniewice (LD1H)",
-              text: "Skierniewice (LD1H)",
-            },
-            {
-              value: "Zgierz (LD1G)",
-              text: "Zgierz (LD1G)",
-            },
-          ],
-        },
-        {
-          type: "radiogroup",
-          name: "lawyer",
-          title: "Adwokat",
-          isRequired: true,
-          choices: [
-            {
-              value: "adw. Elżbieta Cieślińska",
-              text: "adw. Elżbieta Cieślińska",
-            },
-            {
-              value: "adw. Piotr Nowakowski",
-              text: "adw. Piotr Nowakowski",
-            },
-            {
-              value: "adw. dr Dr Dominika Sujka - Kujawiak",
-              text: "adw. dr Dr Dominika Sujka - Kujawiak",
-            },
-          ],
-        },
-      ],
-      title: "Prowadzący sprawę",
-    },
-    {
-      name: "page5",
+      title: "Uczestnicy",
       elements: [
         {
           type: "paneldynamic",
@@ -373,10 +304,82 @@ var surveyJSON = {
           panelAddText: "Dodaj wnioskodawcę",
         },
       ],
-      title: "Uczestnicy",
+    },
+    {
+      name: "page5",
+      title: "Prowadzący sprawę",
+      elements: [
+        {
+          type: "dropdown",
+          name: "court",
+          title: "Sąd",
+          isRequired: true,
+          choices: [
+            {
+              value: "Kutno (LD1K)",
+              text: "Kutno (LD1K)",
+            },
+            {
+              value: "Łask (SR1L)",
+              text: "Łask (SR1L)",
+            },
+            {
+              value: "Łęczyca (LD1Y)",
+              text: "Łęczyca (LD1Y)",
+            },
+            {
+              value: "Łowicz (LD1O)",
+              text: "Łowicz (LD1O)",
+            },
+            {
+              value: "Łódź (LD1M)",
+              text: "Łódź (LD1M)",
+            },
+            {
+              value: "Pabianice (LD1P)",
+              text: "Pabianice (LD1P)",
+            },
+            {
+              value: "Rawa Mazowiecka (LD1R)",
+              text: "Rawa Mazowiecka (LD1R)",
+            },
+            {
+              value: "Skierniewice (LD1H)",
+              text: "Skierniewice (LD1H)",
+            },
+            {
+              value: "Zgierz (LD1G)",
+              text: "Zgierz (LD1G)",
+            },
+          ],
+        },
+        {
+          type: "radiogroup",
+          name: "lawyer",
+          title: "Adwokat",
+          isRequired: true,
+          choices: [
+            {
+              value: "adw. Elżbieta Cieślińska",
+              text: "adw. Elżbieta Cieślińska",
+            },
+            {
+              value: "adw. Piotr Nowakowski",
+              text: "adw. Piotr Nowakowski",
+            },
+            {
+              value: "adw. dr Dr Dominika Sujka - Kujawiak",
+              text: "adw. dr Dr Dominika Sujka - Kujawiak",
+            },
+          ],
+        },
+      ],
     },
     {
       name: "page6",
+      title: "Potwierdzenie wniesienia opłaty sądowej",
+      description:
+        "W celu dalszego procesowania wniosku prosimy o załączenie skanu dokumentu potwierdzającego wniesienie opłaty sądowej.",
       elements: [
         {
           type: "file",
@@ -387,9 +390,6 @@ var surveyJSON = {
           maxSize: 102400,
         },
       ],
-      title: "Potwierdzenie wniesienia opłaty sądowej",
-      description:
-        "W celu dalszego procesowania wniosku prosimy o załączenie skanu dokumentu potwierdzającego wniesienie opłaty sądowej.",
     },
   ],
   // surveyId: "83e2dbb2-b4a6-4631-901a-3d92f91725bf",
