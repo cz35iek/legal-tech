@@ -96,23 +96,23 @@ var surveyJSON = {
           isRequired: true,
           choices: [
             {
-              value: "kawaler, panna",
+              value: "single",
               text: "kawaler, panna",
             },
             {
-              value: "żonaty, zamężna",
+              value: "married",
               text: "żonaty, zamężna",
             },
             {
-              value: "wdowiec, wdowa",
+              value: "widow",
               text: "wdowiec, wdowa",
             },
             {
-              value: "rozwiedziony, rozwiedziona",
+              value: "divorced",
               text: "rozwiedziony, rozwiedziona",
             },
             {
-              value: "separowany, separowana",
+              value: "separated",
               text: "separowany, separowana",
             },
           ],
