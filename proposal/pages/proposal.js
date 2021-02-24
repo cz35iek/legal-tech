@@ -1,6 +1,9 @@
 import React from 'react';
 
 export default function Proposal(proposal) {
+
+  const form = (femaleForm, maleForm) => proposal['testator.sex'] === "male" ? maleForm : femaleForm
+
   return (
     <div>
       <h1>Sad rejonowy - {proposal.court} | wydział cywilny</h1>
@@ -21,16 +24,16 @@ export default function Proposal(proposal) {
       <h3 style={{ textAlign: 'center' }}>o stwierdzenie nabycia spadku</h3>
 
       <p>
-        I. Wnoszę o stwierdzenie, że spadek po zmarłej w dniu 
+        I. Wnoszę o stwierdzenie, że spadek po {form("zmarłej", "zmarłym")} w dniu{' '}
         {proposal['testator.name'] && (
           <>
             <i>{proposal['testator.dateOfDeath']}</i>,{' '}
-            <i>{proposal['testator.name']}</i>,
+            <i>{proposal['testator.name']}</i>,{' '}
             <i>
-              {proposal['testator.sex'] === 'female' ? 'córce' : 'synowi'}{' '}
+              {form('córce','synowi')}{' '}
               {proposal['testator.parents']}
             </i>
-            , z domu <i>Nowak</i>, ostatnio zamieszkałej w{' '}
+            , z domu <i>Nowak</i>, ostatnio {form("zamieszkałej", "zamieszkałym")} w{' '}
             <i>{proposal['testator.address']}</i>, na mocy dziedziczenia
             ustawowego, wraz z dobrodziejstwem inwentarza nabyli:
           </>
@@ -71,17 +74,17 @@ export default function Proposal(proposal) {
       <h1 style={{ textAlign: 'center' }}>Uzasadnienie</h1>
       <p>
         W dniu <i>{proposal['testator.dateOfDeath']}</i> zmarła{' '}
-        <i>{proposal['testator.name']}</i>. W chwili śmierci spadkodawczyni była{' '}
-        <i>{proposal['testator.maritalStatus']}</i> i zamieszkiwała oraz była
-        tymczasowo zameldowana w <i>{proposal['testator.address']}</i>.
-        Spadkodawczyni miała troje dzieci tj. wnioskodawczyni i uczestnicy. Nie
-        pozostawiła po sobie testamentu. W skład spadku nie wchodzi gospodarstwo
+        <i>{proposal['testator.name']}</i>. W chwili śmierci {form("spadkodawczyni była", "spadkodawca był")} {' '}
+        <i>{proposal['testator.maritalStatus']}</i> i {form("zamieszkiwała oraz była", "zamieszkiwał oraz był")} {' '}
+        tymczasowo {form("zameldowana", "zameldowany")} w <i>{proposal['testator.address']}</i>.{' '}
+        {form("Spadkodawczyni miała", "Spadkodawca miał")} troje dzieci tj. wnioskodawczyni i uczestnicy. Nie
+        {form("pozostawiła", "pozostawił")} po sobie testamentu. W skład spadku nie wchodzi gospodarstwo
         rolne.
       </p>
       <strong>Dowody:</strong>
       <ul>
         <li>
-          <i>odpis skrócony aktu zgonu Józefy Kowalskiej,</i>
+          <i>odpis skrócony aktu zgonu <i>{proposal['testator.name']}</i>,</i>
         </li>
         <li>
           <i>
