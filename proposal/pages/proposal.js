@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 export default function Proposal(proposal) {
   return (
@@ -21,7 +21,7 @@ export default function Proposal(proposal) {
       <h3 style={{ textAlign: 'center' }}>o stwierdzenie nabycia spadku</h3>
 
       <p>
-        I. Wnoszę o stwierdzenie, że spadek po zmarłej w dniu
+        I. Wnoszę o stwierdzenie, że spadek po zmarłej w dniu 
         {proposal['testator.name'] && (
           <>
             <i>{proposal['testator.dateOfDeath']}</i>,{' '}

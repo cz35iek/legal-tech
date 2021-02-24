@@ -1,5 +1,3 @@
-// import Head from 'next/head'
-// import styles from '../styles/Home.module.css'
 import React, { useState, useEffect } from 'react';
 import Proposal from "./proposal"
 
@@ -25,6 +23,7 @@ export default function Proposals() {
       })
       .catch((err) => setErrors(err))
   }
+  
   useEffect(() => {
     fetchData()
   }, [])
